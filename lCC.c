@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #define PI 3.14159265358970323
 
-extern float Rx(float x, float y, float angle);
-extern float Ry(float x, float y, float angle);
+extern float Rx(float x, float y, float centreOfOriginX, float centreofOriginY, float angle);
+extern float Ry(float x, float y, float centreOfOriginX, float centreofOriginY, float angle);
 
 int main(int argc, char **argv){
 	
@@ -14,15 +14,24 @@ int main(int argc, char **argv){
 		}
 	}
 
-	float x, y, angle;
+	float x, y, cX, cY, angle;
 	x 	= atof(argv[1]);
 	y 	= atof(argv[2]);
-	angle 	= atof(argv[3]) * PI/180;
-	printf("(%.2lf, %.2lf) -> (%.2lf, %.2lf)\n", x, y, Rx(x,y,angle), Ry(x,y,angle));
+	cX  = atof(argv[3]);
+	cY  = atof(argv[4]);
+	angle 	= atof(argv[5]) * PI/180;
+	
+	/* NOTE: User input should be in the form:
+	            "./a.out X Y CX CY A"
+	*/
+	
+	float i = x-centreOfOriginX;
+    float j = y-centreOfOriginY;
+	
+	printf("(%.2lf, %.2lf) -> (%.2lf, %.2lf)\n", x, y, Rx(i,j,cX,cY,angle), Ry(i,j,cX,cY,angle));
 
 	return 0;
 }
 
-float Rx(float x, float y, float angle){return x*cos(angle) - y*sin(angle);}
-float Ry(float x, float y, float angle){return x*sin(angle) + y*cos(angle);}
-
+float Rx(float x, float y, float centreOfOriginX, float centreOfOriginY, float angle){return x*cos(angle) - y*sin(angle)+centreOfOriginX;}
+float Ry(float x, float y, float centreOfOriginX, float centreofOriginY, float angle){return x*sin(angle) + y*cos(angle)+centreOfOriginY;}
