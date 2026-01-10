@@ -25,8 +25,8 @@ int main(int argc, char **argv){
 	            "./a.out X Y CX CY A"
 	*/
 	
-	float i = x-centreOfOriginX;
-    float j = y-centreOfOriginY;
+	float i = x-Cx;
+    float j = y-Cy;
 	
 	printf("(%.2lf, %.2lf) -> (%.2lf, %.2lf)\n", x, y, Rx(i,j,cX,cY,angle), Ry(i,j,cX,cY,angle));
 
@@ -34,4 +34,4 @@ int main(int argc, char **argv){
 }
 
 float Rx(float x, float y, float centreOfOriginX, float centreOfOriginY, float angle){return x*cos(angle) - y*sin(angle)+centreOfOriginX;}
-float Ry(float x, float y, float centreOfOriginX, float centreofOriginY, float angle){return x*sin(angle) + y*cos(angle)+centreOfOriginY;}
+float Ry(float x, float y, float centreOfOriginX, float centreOfOriginY, float angle){return x*sin(angle) + y*cos(angle)+centreOfOriginY;}
