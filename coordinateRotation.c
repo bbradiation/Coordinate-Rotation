@@ -21,10 +21,6 @@ int main(int argc, char **argv){
 	cY  = atof(argv[4]);
 	angle 	= atof(argv[5]) * PI/180;
 	
-	/* NOTE: User input should be in the form:
-	            "./a.out X Y CX CY A"
-	*/
-	
 	float i = x-cX;
     float j = y-cY;
 	
