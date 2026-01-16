@@ -25,8 +25,8 @@ int main(int argc, char **argv){
 	            "./a.out X Y CX CY A"
 	*/
 	
-	float i = x-Cx;
-    float j = y-Cy;
+	float i = x-cX;
+    float j = y-cY;
 	
 	printf("(%.2lf, %.2lf) -> (%.2lf, %.2lf)\n", x, y, Rx(i,j,cX,cY,angle), Ry(i,j,cX,cY,angle));
 
